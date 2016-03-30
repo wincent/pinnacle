@@ -39,7 +39,7 @@ Mirrors exist at:
 
 Official releases are listed at:
 
-http://www.vim.org/scripts/script.php?script_id=[TODO]
+http://www.vim.org/scripts/script.php?script_id=5360
 
 # License
 
