@@ -146,7 +146,7 @@ endfunction
 
 " Gets the current value of a highlight group.
 function! pinnacle#capture_highlight(group) abort
-  return pinnacle#capture_line('silent highlight ' . a:group)
+  return pinnacle#capture_line('0verbose silent highlight ' . a:group)
 endfunction
 
 " Extracts a highlight string from a group, recursively traversing linked
