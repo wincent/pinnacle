@@ -113,7 +113,7 @@
 " git archive -o vim-docvim-$VERSION.zip HEAD -- .
 " ```
 "
-" - Upload to http://www.vim.org/scripts/script.php?script_id=[TODO]
+" - Upload to http://www.vim.org/scripts/script.php?script_id=5360
 "
 "
 " # Authors
