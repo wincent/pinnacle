@@ -177,6 +177,11 @@ function! pinnacle#embolden(group) abort
   return pinnacle#decorate('bold', a:group)
 endfunction
 
+" Returns an underlined copy of `group` suitable for passing to `:highlight`.
+function! pinnacle#underline(group) abort
+  return pinnacle#decorate('undercurl', a:group)
+endfunction
+
 " Returns a copy of `group` decorated with `style` (eg. "bold", "italic" etc)
 " suitable for passing to `:highlight`.
 function! pinnacle#decorate(style, group) abort
