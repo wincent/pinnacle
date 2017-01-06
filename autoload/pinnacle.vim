@@ -120,8 +120,17 @@
 "
 " Pinnacle is written and maintained by Greg Hurrell <greg@hurrell.net>.
 "
+" Other contributors that have submitted patches include (in alphabetical
+" order):
+"
+" - Kyle Poole
+"
 "
 " # History
+"
+" 0.2 (not yet released)
+"
+" - Added `pinnacle#underline`.
 "
 " ## 0.1 (30 March 2016)
 "
@@ -175,6 +184,11 @@ endfunction
 " Returns a bold copy of `group` suitable for passing to `:highlight`.
 function! pinnacle#embolden(group) abort
   return pinnacle#decorate('bold', a:group)
+endfunction
+
+" Returns an underlined copy of `group` suitable for passing to `:highlight`.
+function! pinnacle#underline(group) abort
+  return pinnacle#decorate('undercurl', a:group)
 endfunction
 
 " Returns a copy of `group` decorated with `style` (eg. "bold", "italic" etc)
