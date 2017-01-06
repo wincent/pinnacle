@@ -96,7 +96,15 @@ git archive -o vim-docvim-$VERSION.zip HEAD -- .
 
 Pinnacle is written and maintained by Greg Hurrell <greg@hurrell.net>.
 
+Other contributors that have submitted patches include (in alphabetical order):
+
+- Kyle Poole
+
 ## History<a name="pinnacle-history" href="#user-content-pinnacle-history"></a>
+
+0.2 (not yet released)
+
+- Added `pinnacle#underline`.
 
 ### 0.1 (30 March 2016)<a name="pinnacle-01-30-march-2016" href="#user-content-pinnacle-01-30-march-2016"></a>
 

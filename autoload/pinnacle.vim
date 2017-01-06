@@ -120,8 +120,17 @@
 "
 " Pinnacle is written and maintained by Greg Hurrell <greg@hurrell.net>.
 "
+" Other contributors that have submitted patches include (in alphabetical
+" order):
+"
+" - Kyle Poole
+"
 "
 " # History
+"
+" 0.2 (not yet released)
+"
+" - Added `pinnacle#underline`.
 "
 " ## 0.1 (30 March 2016)
 "
