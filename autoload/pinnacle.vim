@@ -128,7 +128,7 @@
 "
 " # History
 "
-" 0.2 (not yet released)
+" 0.2 (9 January 2016)
 "
 " - Added `pinnacle#underline`.
 "

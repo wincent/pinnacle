@@ -102,7 +102,7 @@ Other contributors that have submitted patches include (in alphabetical order):
 
 ## History<a name="pinnacle-history" href="#user-content-pinnacle-history"></a>
 
-0.2 (not yet released)
+0.2 (9 January 2016)
 
 - Added `pinnacle#underline`.
 
