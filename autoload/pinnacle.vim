@@ -13,7 +13,7 @@
 " If you don't have a "plug-in management system of choice", I recommend
 " Pathogen (https://github.com/tpope/vim-pathogen) due to its simplicity and
 " robustness. Assuming that you have Pathogen installed and configured, and that
-" you want to install vim-docvim into `~/.vim/bundle`, you can do so with:
+" you want to install Pinnacle into `~/.vim/bundle`, you can do so with:
 "
 " ```
 " git clone https://github.com/wincent/pinnacle.git ~/.vim/bundle/pinnacle
@@ -110,7 +110,7 @@
 " - Produce the release archive:
 "
 " ```
-" git archive -o vim-docvim-$VERSION.zip HEAD -- .
+" git archive -o pinnacle-$VERSION.zip HEAD -- .
 " ```
 "
 " - Upload to http://www.vim.org/scripts/script.php?script_id=5360
