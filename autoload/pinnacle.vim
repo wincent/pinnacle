@@ -176,6 +176,34 @@ function! pinnacle#extract_highlight(group) abort
   return l:original
 endfunction
 
+let s:prefix=has('gui') || has('termguicolors') ? 'gui' : 'cterm'
+
+function! pinnacle#extract_bg(group) abort
+  return pinnacle#extract_component(a:group, 'bg')
+endfunction
+
+function! pinnacle#extract_fg(group) abort
+  return pinnacle#extract_component(a:group, 'fg')
+endfunction
+
+function! pinnacle#extract_component(group, component) abort
+  return synIDattr(synIDtrans(hlID(a:group)), a:component, s:prefix)
+endfunction
+
+function! pinnacle#highlight(highlight) abort
+  let l:result=[]
+  if has_key(a:highlight, 'bg')
+    call insert(l:result, s:prefix . 'bg=' . a:highlight['bg'])
+  endif
+  if has_key(a:highlight, 'fg')
+    call insert(l:result, s:prefix . 'fg=' . a:highlight['fg'])
+  endif
+  if has_key(a:highlight, 'term')
+    call insert(l:result, s:prefix . '=' . a:highlight['term'])
+  endif
+  return join(l:result, ' ')
+endfunction
+
 " Returns an italicized copy of `group` suitable for passing to `:highlight`.
 function! pinnacle#italicize(group) abort
   return pinnacle#decorate('italic', a:group)
