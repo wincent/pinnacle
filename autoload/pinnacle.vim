@@ -128,7 +128,13 @@
 "
 " # History
 "
-" 0.2 (9 January 2016)
+" ## 0.3 (6 June 2017)
+"
+" - Added `pinnacle#extract_bg` and `pinnacle#extract_fg`.
+" - Fixed bug that could cause existing highlights to be incorrectly
+"   augmented.
+"
+" ## 0.2 (9 January 2016)
 "
 " - Added `pinnacle#underline`.
 "
