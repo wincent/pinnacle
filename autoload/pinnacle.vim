@@ -234,9 +234,9 @@ function! pinnacle#decorate(style, group) abort
     " Check for existing setting.
     let l:matches = matchlist(
       \   l:original,
-      \   '^\([^ ]\+ \)*' .
+      \   '^\(\%([^ ]\+ \)*\)' .
       \   '\(' . l:lhs . '=[^ ]\+\)' .
-      \   '\( .\+\)*$'
+      \   '\(\%( [^ ]\+\)*\)$'
       \ )
     if l:matches == []
       " No setting, add one with just a:style in it
