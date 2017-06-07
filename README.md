@@ -119,7 +119,7 @@ Other contributors that have submitted patches include (in alphabetical order):
 - Fixed bug that could cause existing highlights to be incorrectly augmented.
 
 
-### 0.2 (9 January 2016)<a name="pinnacle-02-9-january-2016" href="#user-content-pinnacle-02-9-january-2016"></a>
+### 0.2 (9 January 2017)<a name="pinnacle-02-9-january-2017" href="#user-content-pinnacle-02-9-january-2017"></a>
 
 - Added `pinnacle#underline`.
 

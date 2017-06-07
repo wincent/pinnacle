@@ -134,7 +134,7 @@
 " - Fixed bug that could cause existing highlights to be incorrectly
 "   augmented.
 "
-" ## 0.2 (9 January 2016)
+" ## 0.2 (9 January 2017)
 "
 " - Added `pinnacle#underline`.
 "
