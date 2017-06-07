@@ -216,7 +216,7 @@ endfunction
 
 " Returns an underlined copy of `group` suitable for passing to `:highlight`.
 function! pinnacle#underline(group) abort
-  return pinnacle#decorate('undercurl', a:group)
+  return pinnacle#decorate('underline', a:group)
 endfunction
 
 " Returns a copy of `group` decorated with `style` (eg. "bold", "italic" etc)
