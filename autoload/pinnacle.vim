@@ -238,7 +238,7 @@ function! pinnacle#decorate(style, group) abort
       \   '\(' . l:lhs . '=[^ ]\+\)' .
       \   '\(\%( [^ ]\+\)*\)$'
       \ )
-    if l:matches == []
+    if empty(l:matches)
       " No setting, add one with just a:style in it
       let l:original .= ' ' . l:lhs . '=' . a:style
     else
