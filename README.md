@@ -113,6 +113,11 @@ Other contributors that have submitted patches include (in alphabetical order):
 ## History<a name="pinnacle-history" href="#user-content-pinnacle-history"></a>
 
 
+### 0.3.1 (7 June 2017)<a name="pinnacle-031-7-june-2017" href="#user-content-pinnacle-031-7-june-2017"></a>
+
+- Fix another bug with augmentation of existing highlights.
+
+
 ### 0.3 (6 June 2017)<a name="pinnacle-03-6-june-2017" href="#user-content-pinnacle-03-6-june-2017"></a>
 
 - Added `pinnacle#extract_bg` and `pinnacle#extract_fg`.
