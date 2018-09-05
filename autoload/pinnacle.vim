@@ -123,6 +123,7 @@
 " Other contributors that have submitted patches include (in alphabetical
 " order):
 "
+" - Cody Buell
 " - Kyle Poole
 "
 "
