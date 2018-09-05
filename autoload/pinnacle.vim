@@ -123,6 +123,7 @@
 " Other contributors that have submitted patches include (in alphabetical
 " order):
 "
+" - Cody Buell
 " - Kyle Poole
 "
 "
@@ -186,7 +187,7 @@ function! pinnacle#extract_highlight(group) abort
   return l:original
 endfunction
 
-let s:prefix=has('gui') || has('termguicolors') ? 'gui' : 'cterm'
+let s:prefix=has('gui') || (has('termguicolors') && &termguicolors) ? 'gui' : 'cterm'
 
 function! pinnacle#extract_bg(group) abort
   return pinnacle#extract_component(a:group, 'bg')
