@@ -198,7 +198,7 @@ function! pinnacle#extract_fg(group) abort
 endfunction
 
 function! pinnacle#extract_component(group, component) abort
-  return synIDattr(synIDtrans(hlID(a:group)), a:component, s:prefix)
+  return synIDattr(synIDtrans(hlID(a:group)), a:component)
 endfunction
 
 function! pinnacle#highlight(highlight) abort
