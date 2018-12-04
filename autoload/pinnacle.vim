@@ -249,14 +249,14 @@ function! pinnacle#dump(highlight) abort
         \   'fg': pinnacle#extract_component(a:highlight, 'fg'),
         \   s:prefix: join(
         \     filter([
-        \       pinnacle#extract_component(a:highlight, 'bold') ? 'bold' : 0,
-        \       pinnacle#extract_component(a:highlight, 'inverse') ? 'inverse' : 0,
-        \       pinnacle#extract_component(a:highlight, 'italic') ? 'italic' : 0,
-        \       pinnacle#extract_component(a:highlight, 'reverse') ? 'reverse' : 0,
-        \       pinnacle#extract_component(a:highlight, 'standout') ? 'standout' : 0,
-        \       pinnacle#extract_component(a:highlight, 'undercurl') ? 'undercurl' : 0,
-        \       pinnacle#extract_component(a:highlight, 'underline') ? 'underline': 0
-        \     ], 'string(v:val) != "0"'),
+        \       pinnacle#extract_component(a:highlight, 'bold') ? 'bold' : '',
+        \       pinnacle#extract_component(a:highlight, 'inverse') ? 'inverse' : '',
+        \       pinnacle#extract_component(a:highlight, 'italic') ? 'italic' : '',
+        \       pinnacle#extract_component(a:highlight, 'reverse') ? 'reverse' : '',
+        \       pinnacle#extract_component(a:highlight, 'standout') ? 'standout' : '',
+        \       pinnacle#extract_component(a:highlight, 'undercurl') ? 'undercurl' : '',
+        \       pinnacle#extract_component(a:highlight, 'underline') ? 'underline': ''
+        \     ], 'v:val != ""'),
         \   ',')
         \ }, 'v:val != ""')
 endfunction
