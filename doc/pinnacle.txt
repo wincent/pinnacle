@@ -38,61 +38,74 @@ To generate help tags under Pathogen, you can do so from inside Vim with:
 <
 FUNCTIONS                                                   *pinnacle-functions*
 
-pinnacle#sub_newlines()                                *pinnacle#sub_newlines()*
+                                                       *pinnacle#sub_newlines()*
+pinnacle#sub_newlines() ~
 
 Replaces newlines with spaces.
 
-pinnacle#capturel_line()                              *pinnacle#capturel_line()*
+                                                      *pinnacle#capturel_line()*
+pinnacle#capturel_line() ~
 
 Runs a command and returns the captured output as a single line.
 
 Useful when we don't want to let long lines on narrow windows produce
 unwanted embedded newlines.
 
-pinnacle#capture_highlight()                      *pinnacle#capture_highlight()*
+                                                  *pinnacle#capture_highlight()*
+pinnacle#capture_highlight() ~
 
 Gets the current value of a highlight group.
 
-pinnacle#extract_highlight()                      *pinnacle#extract_highlight()*
+                                                  *pinnacle#extract_highlight()*
+pinnacle#extract_highlight() ~
 
 Extracts a highlight string from a group, recursively traversing linked
 groups, and returns a string suitable for passing to `:highlight`.
 
-pinnacle#extract_bg()                                    *pinnacle#extract_bg()*
+                                                         *pinnacle#extract_bg()*
+pinnacle#extract_bg() ~
 
 Extracts just the bg portion of the specified highlight group.
 
-pinnacle#extract_fg()                                    *pinnacle#extract_fg()*
+                                                         *pinnacle#extract_fg()*
+pinnacle#extract_fg() ~
 
 Extracts just the bg portion of the specified highlight group.
 
-pinnacle#extract_component()                      *pinnacle#extract_component()*
+                                                  *pinnacle#extract_component()*
+pinnacle#extract_component() ~
 
 Extracts a single component (eg. "bg", "fg", "italic" etc) from the
 specified highlight group.
 
-pinnacle#dump()                                                *pinnacle#dump()*
+                                                               *pinnacle#dump()*
+pinnacle#dump() ~
 
 Returns a dictionary representation of the specified highlight group.
 
-pinnacle#highlight()                                      *pinnacle#highlight()*
+                                                          *pinnacle#highlight()*
+pinnacle#highlight() ~
 
 Returns a string representation of a dictionary containing bg, fg, term,
 cterm and guiterm entries.
 
-pinnacle#italicize()                                      *pinnacle#italicize()*
+                                                          *pinnacle#italicize()*
+pinnacle#italicize() ~
 
 Returns an italicized copy of `group` suitable for passing to `:highlight`.
 
-pinnacle#embolden()                                        *pinnacle#embolden()*
+                                                           *pinnacle#embolden()*
+pinnacle#embolden() ~
 
 Returns a bold copy of `group` suitable for passing to `:highlight`.
 
-pinnacle#underline()                                      *pinnacle#underline()*
+                                                          *pinnacle#underline()*
+pinnacle#underline() ~
 
 Returns an underlined copy of `group` suitable for passing to `:highlight`.
 
-pinnacle#decorate()                                        *pinnacle#decorate()*
+                                                           *pinnacle#decorate()*
+pinnacle#decorate() ~
 
 Returns a copy of `group` decorated with `style` (eg. "bold", "italic" etc)
 suitable for passing to `:highlight`.
