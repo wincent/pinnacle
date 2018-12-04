@@ -31,6 +31,89 @@ To generate help tags under Pathogen, you can do so from inside Vim with:
 ```
 
 
+## Functions<a name="pinnacle-functions" href="#user-content-pinnacle-functions"></a>
+
+<p align="right"><a name="pinnaclesubnewlines" href="#user-content-pinnaclesubnewlines"><code>pinnacle#sub_newlines()</code></a></p>
+
+### `pinnacle#sub_newlines()`<a name="pinnacle-pinnaclesubnewlines" href="#user-content-pinnacle-pinnaclesubnewlines"></a>
+
+Replaces newlines with spaces.
+
+<p align="right"><a name="pinnaclecapturelline" href="#user-content-pinnaclecapturelline"><code>pinnacle#capturel_line()</code></a></p>
+
+### `pinnacle#capturel_line()`<a name="pinnacle-pinnaclecapturelline" href="#user-content-pinnacle-pinnaclecapturelline"></a>
+
+Runs a command and returns the captured output as a single line.
+
+Useful when we don't want to let long lines on narrow windows produce unwanted embedded newlines.
+
+<p align="right"><a name="pinnaclecapturehighlight" href="#user-content-pinnaclecapturehighlight"><code>pinnacle#capture_highlight()</code></a></p>
+
+### `pinnacle#capture_highlight()`<a name="pinnacle-pinnaclecapturehighlight" href="#user-content-pinnacle-pinnaclecapturehighlight"></a>
+
+Gets the current value of a highlight group.
+
+<p align="right"><a name="pinnacleextracthighlight" href="#user-content-pinnacleextracthighlight"><code>pinnacle#extract_highlight()</code></a></p>
+
+### `pinnacle#extract_highlight()`<a name="pinnacle-pinnacleextracthighlight" href="#user-content-pinnacle-pinnacleextracthighlight"></a>
+
+Extracts a highlight string from a group, recursively traversing linked groups, and returns a string suitable for passing to `:highlight`.
+
+<p align="right"><a name="pinnacleextractbg" href="#user-content-pinnacleextractbg"><code>pinnacle#extract_bg()</code></a></p>
+
+### `pinnacle#extract_bg()`<a name="pinnacle-pinnacleextractbg" href="#user-content-pinnacle-pinnacleextractbg"></a>
+
+Extracts just the bg portion of the specified highlight group.
+
+<p align="right"><a name="pinnacleextractfg" href="#user-content-pinnacleextractfg"><code>pinnacle#extract_fg()</code></a></p>
+
+### `pinnacle#extract_fg()`<a name="pinnacle-pinnacleextractfg" href="#user-content-pinnacle-pinnacleextractfg"></a>
+
+Extracts just the bg portion of the specified highlight group.
+
+<p align="right"><a name="pinnacleextractcomponent" href="#user-content-pinnacleextractcomponent"><code>pinnacle#extract_component()</code></a></p>
+
+### `pinnacle#extract_component()`<a name="pinnacle-pinnacleextractcomponent" href="#user-content-pinnacle-pinnacleextractcomponent"></a>
+
+Extracts a single component (eg. &quot;bg&quot;, &quot;fg&quot;, &quot;italic&quot; etc) from the specified highlight group.
+
+<p align="right"><a name="pinnacledump" href="#user-content-pinnacledump"><code>pinnacle#dump()</code></a></p>
+
+### `pinnacle#dump()`<a name="pinnacle-pinnacledump" href="#user-content-pinnacle-pinnacledump"></a>
+
+Returns a dictionary representation of the specified highlight group.
+
+<p align="right"><a name="pinnaclehighlight" href="#user-content-pinnaclehighlight"><code>pinnacle#highlight()</code></a></p>
+
+### `pinnacle#highlight()`<a name="pinnacle-pinnaclehighlight" href="#user-content-pinnacle-pinnaclehighlight"></a>
+
+Returns a string representation of a dictionary containing bg, fg, term, cterm and guiterm entries.
+
+<p align="right"><a name="pinnacleitalicize" href="#user-content-pinnacleitalicize"><code>pinnacle#italicize()</code></a></p>
+
+### `pinnacle#italicize()`<a name="pinnacle-pinnacleitalicize" href="#user-content-pinnacle-pinnacleitalicize"></a>
+
+Returns an italicized copy of `group` suitable for passing to `:highlight`.
+
+<p align="right"><a name="pinnacleembolden" href="#user-content-pinnacleembolden"><code>pinnacle#embolden()</code></a></p>
+
+### `pinnacle#embolden()`<a name="pinnacle-pinnacleembolden" href="#user-content-pinnacle-pinnacleembolden"></a>
+
+Returns a bold copy of `group` suitable for passing to `:highlight`.
+
+<p align="right"><a name="pinnacleunderline" href="#user-content-pinnacleunderline"><code>pinnacle#underline()</code></a></p>
+
+### `pinnacle#underline()`<a name="pinnacle-pinnacleunderline" href="#user-content-pinnacle-pinnacleunderline"></a>
+
+Returns an underlined copy of `group` suitable for passing to `:highlight`.
+
+<p align="right"><a name="pinnacledecorate" href="#user-content-pinnacledecorate"><code>pinnacle#decorate()</code></a></p>
+
+### `pinnacle#decorate()`<a name="pinnacle-pinnacledecorate" href="#user-content-pinnacle-pinnacledecorate"></a>
+
+Returns a copy of `group` decorated with `style` (eg. &quot;bold&quot;, &quot;italic&quot; etc) suitable for passing to `:highlight`.
+
+
 ## Website<a name="pinnacle-website" href="#user-content-pinnacle-website"></a>
 
 The official Pinnacle source code repo is at:

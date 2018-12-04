@@ -33,6 +33,7 @@
 " :call pathogen#helptags()
 " ```
 "
+" @footer
 "
 " # Website
 "
@@ -151,15 +152,23 @@
 "
 " - Initial release.
 
+""
+" @function pinnacle#sub_newlines
+"
 " Replaces newlines with spaces.
+"
 function! pinnacle#sub_newlines(string) abort
   return tr(a:string, "\r\n", '  ')
 endfunction
 
+""
+" @function pinnacle#capturel_line
+"
 " Runs a command and returns the captured output as a single line.
 "
 " Useful when we don't want to let long lines on narrow windows produce unwanted
 " embedded newlines.
+"
 function! pinnacle#capture_line(command) abort
   redir => l:capture
   execute a:command
@@ -168,13 +177,21 @@ function! pinnacle#capture_line(command) abort
   return pinnacle#sub_newlines(l:capture)
 endfunction
 
+""
+" @function pinnacle#capture_highlight
+"
 " Gets the current value of a highlight group.
+"
 function! pinnacle#capture_highlight(group) abort
   return pinnacle#capture_line('0verbose silent highlight ' . a:group)
 endfunction
 
+""
+" @function pinnacle#extract_highlight
+"
 " Extracts a highlight string from a group, recursively traversing linked
 " groups, and returns a string suitable for passing to `:highlight`.
+"
 function! pinnacle#extract_highlight(group) abort
   let l:group = pinnacle#capture_highlight(a:group)
 
@@ -193,19 +210,39 @@ endfunction
 
 let s:prefix=has('gui') || (has('termguicolors') && &termguicolors) ? 'gui' : 'cterm'
 
+""
+" @function pinnacle#extract_bg
+"
+" Extracts just the bg portion of the specified highlight group.
+"
 function! pinnacle#extract_bg(group) abort
   return pinnacle#extract_component(a:group, 'bg')
 endfunction
 
+""
+" @function pinnacle#extract_fg
+"
+" Extracts just the bg portion of the specified highlight group.
+"
 function! pinnacle#extract_fg(group) abort
   return pinnacle#extract_component(a:group, 'fg')
 endfunction
 
+""
+" @function pinnacle#extract_component
+"
+" Extracts a single component (eg. "bg", "fg", "italic" etc) from the specified
+" highlight group.
+"
 function! pinnacle#extract_component(group, component) abort
   return synIDattr(synIDtrans(hlID(a:group)), a:component)
 endfunction
 
+""
+" @function pinnacle#dump
+"
 " Returns a dictionary representation of the specified highlight group.
+"
 function! pinnacle#dump(highlight) abort
   return filter({
         \   'bg': pinnacle#extract_component(a:highlight, 'bg'),
@@ -224,8 +261,12 @@ function! pinnacle#dump(highlight) abort
         \ }, 'v:val != ""')
 endfunction
 
+""
+" @function pinnacle#highlight
+"
 " Returns a string representation of a dictionary containing bg, fg, term, cterm
 " and guiterm entries.
+"
 function! pinnacle#highlight(highlight) abort
   let l:result=[]
   if has_key(a:highlight, 'bg')
@@ -246,23 +287,39 @@ function! pinnacle#highlight(highlight) abort
   return join(l:result, ' ')
 endfunction
 
+""
+" @function pinnacle#italicize
+"
 " Returns an italicized copy of `group` suitable for passing to `:highlight`.
+"
 function! pinnacle#italicize(group) abort
   return pinnacle#decorate('italic', a:group)
 endfunction
 
+""
+" @function pinnacle#embolden
+"
 " Returns a bold copy of `group` suitable for passing to `:highlight`.
+"
 function! pinnacle#embolden(group) abort
   return pinnacle#decorate('bold', a:group)
 endfunction
 
+""
+" @function pinnacle#underline
+"
 " Returns an underlined copy of `group` suitable for passing to `:highlight`.
+"
 function! pinnacle#underline(group) abort
   return pinnacle#decorate('underline', a:group)
 endfunction
 
+""
+" @function pinnacle#decorate
+"
 " Returns a copy of `group` decorated with `style` (eg. "bold", "italic" etc)
 " suitable for passing to `:highlight`.
+"
 function! pinnacle#decorate(style, group) abort
   let l:original = pinnacle#extract_highlight(a:group)
 
