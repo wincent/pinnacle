@@ -129,6 +129,10 @@
 "
 " # History
 "
+" ## master (not yet released)
+"
+" - Added `pinnacle#dump()`.
+"
 " ## 0.3.1 (7 June 2017)
 "
 " - Fix another bug with augmentation of existing highlights.
@@ -201,6 +205,27 @@ function! pinnacle#extract_component(group, component) abort
   return synIDattr(synIDtrans(hlID(a:group)), a:component)
 endfunction
 
+" Returns a dictionary representation of the specified highlight group.
+function! pinnacle#dump(highlight) abort
+  return filter({
+        \   'bg': pinnacle#extract_component(a:highlight, 'bg'),
+        \   'fg': pinnacle#extract_component(a:highlight, 'fg'),
+        \   s:prefix: join(
+        \     filter([
+        \       pinnacle#extract_component(a:highlight, 'bold') ? 'bold' : 0,
+        \       pinnacle#extract_component(a:highlight, 'inverse') ? 'inverse' : 0,
+        \       pinnacle#extract_component(a:highlight, 'italic') ? 'italic' : 0,
+        \       pinnacle#extract_component(a:highlight, 'reverse') ? 'reverse' : 0,
+        \       pinnacle#extract_component(a:highlight, 'standout') ? 'standout' : 0,
+        \       pinnacle#extract_component(a:highlight, 'undercurl') ? 'undercurl' : 0,
+        \       pinnacle#extract_component(a:highlight, 'underline') ? 'underline': 0
+        \     ], 'string(v:val) != "0"'),
+        \   ',')
+        \ }, 'v:val != ""')
+endfunction
+
+" Returns a string representation of a dictionary containing bg, fg, term, cterm
+" and guiterm entries.
 function! pinnacle#highlight(highlight) abort
   let l:result=[]
   if has_key(a:highlight, 'bg')
@@ -211,6 +236,12 @@ function! pinnacle#highlight(highlight) abort
   endif
   if has_key(a:highlight, 'term')
     call insert(l:result, s:prefix . '=' . a:highlight['term'])
+  endif
+  if has_key(a:highlight, 'cterm')
+    call insert(l:result, s:prefix . '=' . a:highlight['cterm'])
+  endif
+  if has_key(a:highlight, 'guiterm')
+    call insert(l:result, s:prefix . '=' . a:highlight['guiterm'])
   endif
   return join(l:result, ' ')
 endfunction

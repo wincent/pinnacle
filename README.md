@@ -114,6 +114,11 @@ Other contributors that have submitted patches include (in alphabetical order):
 ## History<a name="pinnacle-history" href="#user-content-pinnacle-history"></a>
 
 
+### master (not yet released)<a name="pinnacle-master-not-yet-released" href="#user-content-pinnacle-master-not-yet-released"></a>
+
+- Added `pinnacle#dump()`.
+
+
 ### 0.3.1 (7 June 2017)<a name="pinnacle-031-7-june-2017" href="#user-content-pinnacle-031-7-june-2017"></a>
 
 - Fix another bug with augmentation of existing highlights.

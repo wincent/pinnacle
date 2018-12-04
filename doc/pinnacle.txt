@@ -117,6 +117,10 @@ order):
 
 HISTORY                                                       *pinnacle-history*
 
+master (not yet released) ~
+
+- Added `pinnacle#dump()`.
+
 0.3.1 (7 June 2017) ~
 
 - Fix another bug with augmentation of existing highlights.
