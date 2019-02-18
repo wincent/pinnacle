@@ -161,6 +161,10 @@ function! pinnacle#sub_newlines(string) abort
   return tr(a:string, "\r\n", '  ')
 endfunction
 
+function s:execute(command)
+  execute a:command
+endfunction
+
 ""
 " @function pinnacle#capturel_line
 "
@@ -170,9 +174,13 @@ endfunction
 " embedded newlines.
 "
 function! pinnacle#capture_line(command) abort
-  redir => l:capture
-  execute a:command
-  redir END
+  if exists('*execute')
+    let l:capture=execute(a:command)
+  else
+    redir => l:capture
+    silent call s:execute(a:command)
+    redir END
+  endif
 
   return pinnacle#sub_newlines(l:capture)
 endfunction
