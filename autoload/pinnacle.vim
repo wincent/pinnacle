@@ -130,7 +130,7 @@
 "
 " # History
 "
-" ## master (not yet released)
+" ## 1.0 (6 March 2019)
 "
 " - Added `pinnacle#dump()`.
 "

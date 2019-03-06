@@ -197,7 +197,7 @@ Other contributors that have submitted patches include (in alphabetical order):
 ## History<a name="pinnacle-history" href="#user-content-pinnacle-history"></a>
 
 
-### master (not yet released)<a name="pinnacle-master-not-yet-released" href="#user-content-pinnacle-master-not-yet-released"></a>
+### 1.0 (6 March 2019)<a name="pinnacle-10-6-march-2019" href="#user-content-pinnacle-10-6-march-2019"></a>
 
 - Added `pinnacle#dump()`.
 
