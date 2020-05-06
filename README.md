@@ -113,6 +113,8 @@ Returns an underlined copy of `group` suitable for passing to `:highlight`.
 
 Returns a copy of `group` decorated with `style` (eg. &quot;bold&quot;, &quot;italic&quot; etc) suitable for passing to `:highlight`.
 
+To decorate with multiple styles, `style` should be a comma-separated list.
+
 
 ## Website<a name="pinnacle-website" href="#user-content-pinnacle-website"></a>
 
@@ -195,6 +197,11 @@ Other contributors that have submitted patches include (in alphabetical order):
 
 
 ## History<a name="pinnacle-history" href="#user-content-pinnacle-history"></a>
+
+
+### master (not yet released)<a name="pinnacle-master-not-yet-released" href="#user-content-pinnacle-master-not-yet-released"></a>
+
+- Teach `pinnacle#decorate()` to accept a comma-separated list of styles.
 
 
 ### 1.0 (6 March 2019)<a name="pinnacle-10-6-march-2019" href="#user-content-pinnacle-10-6-march-2019"></a>

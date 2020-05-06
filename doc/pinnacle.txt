@@ -110,6 +110,8 @@ pinnacle#decorate() ~
 Returns a copy of `group` decorated with `style` (eg. "bold", "italic" etc)
 suitable for passing to `:highlight`.
 
+To decorate with multiple styles, `style` should be a comma-separated list.
+
 WEBSITE                                                       *pinnacle-website*
 
 The official Pinnacle source code repo is at:
@@ -191,6 +193,10 @@ order):
 - Kyle Poole
 
 HISTORY                                                       *pinnacle-history*
+
+master (not yet released) ~
+
+- Teach `pinnacle#decorate()` to accept a comma-separated list of styles.
 
 1.0 (6 March 2019) ~
 

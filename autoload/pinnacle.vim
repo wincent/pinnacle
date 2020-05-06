@@ -130,6 +130,10 @@
 "
 " # History
 "
+" ## master (not yet released)
+"
+" - Teach `pinnacle#decorate()` to accept a comma-separated list of styles.
+"
 " ## 1.0 (6 March 2019)
 "
 " - Added `pinnacle#dump()`.
@@ -328,6 +332,8 @@ endfunction
 " Returns a copy of `group` decorated with `style` (eg. "bold", "italic" etc)
 " suitable for passing to `:highlight`.
 "
+" To decorate with multiple styles, `style` should be a comma-separated list.
+"
 function! pinnacle#decorate(style, group) abort
   let l:original = pinnacle#extract_highlight(a:group)
 
@@ -347,11 +353,15 @@ function! pinnacle#decorate(style, group) abort
       let l:start = l:matches[1]
       let l:value = l:matches[2]
       let l:end = l:matches[3]
-      if l:value =~# '.*' . a:style . '.*'
-        continue
-      else
-        let l:original = l:start . l:value . ',' . a:style . l:end
-      endif
+      for l:style in split(a:style, ',')
+        let l:trimmed=trim(l:style)
+        if l:value =~# '\<' . l:trimmed . '\>'
+          continue
+        else
+          let l:value .= ',' . l:trimmed
+        endif
+      endfor
+      let l:original = l:start . l:value . l:end
     endif
   endfor
 
