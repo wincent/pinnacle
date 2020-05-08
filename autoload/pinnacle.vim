@@ -326,6 +326,14 @@ function! pinnacle#underline(group) abort
   return pinnacle#decorate('underline', a:group)
 endfunction
 
+function! s:trim(string)
+  if exists('*trim')
+    return trim(a:string)
+  else
+    return substitute(a:string, '\v^\s+(\S*)\s+$', '\1', '')
+  endif
+endfunction
+
 ""
 " @function pinnacle#decorate
 "
@@ -354,7 +362,7 @@ function! pinnacle#decorate(style, group) abort
       let l:value = l:matches[2]
       let l:end = l:matches[3]
       for l:style in split(a:style, ',')
-        let l:trimmed=trim(l:style)
+        let l:trimmed=s:trim(l:style)
         if l:value =~# '\<' . l:trimmed . '\>'
           continue
         else
