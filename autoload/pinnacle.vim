@@ -3,8 +3,9 @@
 "
 " # Intro
 "
-" Pinnacle provides functions for manipulating |:highlight| groups.
-"
+" Pinnacle provides functions for manipulating |:highlight| groups in Vimscript
+" (eg. |pinnacle#italicize|) and Lua (eg.
+" `require'wincent.pinnacle'.italicize()`).
 "
 " # Installation
 "
@@ -133,6 +134,8 @@
 " ## master (not yet released)
 "
 " - Teach `pinnacle#decorate()` to accept a comma-separated list of styles.
+" - Add alternative Lua-based API (eg. `require'wincent.pinnacle'.italicize()`
+"   is equivalent to `pinnacle#italicize()` etc).
 "
 " ## 1.0 (6 March 2019)
 "

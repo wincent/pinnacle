@@ -1,11 +1,8 @@
-
 # Pinnacle<a name="pinnacle-pinnacle" href="#user-content-pinnacle-pinnacle"></a>
-
 
 ## Intro<a name="pinnacle-intro" href="#user-content-pinnacle-intro"></a>
 
-Pinnacle provides functions for manipulating <strong>`:highlight`</strong> groups.
-
+Pinnacle provides functions for manipulating <strong>`:highlight`</strong> groups in Vimscript (eg. <strong>`pinnacle#italicize`</strong>) and Lua (eg. `require'wincent.pinnacle'.italicize()`).
 
 ## Installation<a name="pinnacle-installation" href="#user-content-pinnacle-installation"></a>
 
@@ -29,7 +26,6 @@ To generate help tags under Pathogen, you can do so from inside Vim with:
 ```
 :call pathogen#helptags()
 ```
-
 
 ## Functions<a name="pinnacle-functions" href="#user-content-pinnacle-functions"></a>
 
@@ -115,7 +111,6 @@ Returns a copy of `group` decorated with `style` (eg. &quot;bold&quot;, &quot;it
 
 To decorate with multiple styles, `style` should be a comma-separated list.
 
-
 ## Website<a name="pinnacle-website" href="#user-content-pinnacle-website"></a>
 
 The official Pinnacle source code repo is at:
@@ -132,7 +127,6 @@ Official releases are listed at:
 
 http://www.vim.org/scripts/script.php?script_id=5360
 
-
 ## License<a name="pinnacle-license" href="#user-content-pinnacle-license"></a>
 
 Copyright (c) 2016-present Greg Hurrell
@@ -143,14 +137,11 @@ The above copyright notice and this permission notice shall be included in all c
 
 THE SOFTWARE IS PROVIDED &quot;AS IS&quot;, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
-
 ## Development<a name="pinnacle-development" href="#user-content-pinnacle-development"></a>
-
 
 ### Contributing patches<a name="pinnacle-contributing-patches" href="#user-content-pinnacle-contributing-patches"></a>
 
 Patches can be sent via mail to greg@hurrell.net, or as GitHub pull requests at: https://github.com/wincent/pinnacle/pulls
-
 
 ### Cutting a new release<a name="pinnacle-cutting-a-new-release" href="#user-content-pinnacle-cutting-a-new-release"></a>
 
@@ -185,7 +176,6 @@ git archive -o pinnacle-$VERSION.zip HEAD -- .
 
 - Upload to http://www.vim.org/scripts/script.php?script_id=5360
 
-
 ## Authors<a name="pinnacle-authors" href="#user-content-pinnacle-authors"></a>
 
 Pinnacle is written and maintained by Greg Hurrell &lt;greg@hurrell.net&gt;.
@@ -195,35 +185,29 @@ Other contributors that have submitted patches include (in alphabetical order):
 - Cody Buell
 - Kyle Poole
 
-
 ## History<a name="pinnacle-history" href="#user-content-pinnacle-history"></a>
-
 
 ### master (not yet released)<a name="pinnacle-master-not-yet-released" href="#user-content-pinnacle-master-not-yet-released"></a>
 
 - Teach `pinnacle#decorate()` to accept a comma-separated list of styles.
-
+- Add alternative Lua-based API (eg. `require'wincent.pinnacle'.italicize()` is equivalent to `pinnacle#italicize()` etc).
 
 ### 1.0 (6 March 2019)<a name="pinnacle-10-6-march-2019" href="#user-content-pinnacle-10-6-march-2019"></a>
 
 - Added `pinnacle#dump()`.
 
-
 ### 0.3.1 (7 June 2017)<a name="pinnacle-031-7-june-2017" href="#user-content-pinnacle-031-7-june-2017"></a>
 
 - Fix another bug with augmentation of existing highlights.
-
 
 ### 0.3 (6 June 2017)<a name="pinnacle-03-6-june-2017" href="#user-content-pinnacle-03-6-june-2017"></a>
 
 - Added `pinnacle#extract_bg` and `pinnacle#extract_fg`.
 - Fixed bug that could cause existing highlights to be incorrectly augmented.
 
-
 ### 0.2 (9 January 2017)<a name="pinnacle-02-9-january-2017" href="#user-content-pinnacle-02-9-january-2017"></a>
 
 - Added `pinnacle#underline`.
-
 
 ### 0.1 (30 March 2016)<a name="pinnacle-01-30-march-2016" href="#user-content-pinnacle-01-30-march-2016"></a>
 
