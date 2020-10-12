@@ -164,6 +164,9 @@
 "
 " Replaces newlines with spaces.
 "
+" Note that this function is not implemented in the Lua API, because it is
+" required only for support on legacy Vim versions.
+"
 function! pinnacle#sub_newlines(string) abort
   return tr(a:string, "\r\n", '  ')
 endfunction
@@ -179,6 +182,9 @@ endfunction
 "
 " Useful when we don't want to let long lines on narrow windows produce unwanted
 " embedded newlines.
+"
+" Note that this function is not implemented in the Lua API, because it is
+" required only for support on legacy Vim versions.
 "
 function! pinnacle#capture_line(command) abort
   if exists('*execute')

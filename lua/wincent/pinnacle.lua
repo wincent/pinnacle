@@ -10,17 +10,7 @@ end
 
 -- Gets the current value of a highlight group.
 pinnacle.capture_highlight = function(group)
-  return pinnacle.capture_line('0verbose silent highlight ' .. group)
-end
-
--- Runs a command and returns the captured output as a single line.
---
--- Useful when we don't want to let long lines on narrow windows produce
--- unwanted embedded newlines.
-pinnacle.capture_line = function(command)
-  local capture = vim.fn.execute(command)
-
-  return pinnacle.sub_newlines(capture)
+  return vim.api.nvim_exec('0verbose silent highlight ' .. group, true)
 end
 
 -- Returns a copy of `group` decorated with `style` (eg. "bold",
@@ -51,7 +41,7 @@ pinnacle.decorate = function(style, group)
       original = before .. setting .. after
     end
 
-    return pinnacle.sub_newlines(original)
+    return original
   end
 end
 
@@ -148,11 +138,6 @@ end
 -- `:highlight`.
 pinnacle.italicize = function(group)
   return pinnacle.decorate('italic', group)
-end
-
--- Replaces newlines with spaces.
-pinnacle.sub_newlines = function(string)
-  return ({string:gsub('[\r\n]', ' ')})[1]
 end
 
 -- Returns an underlined copy of `group` suitable for passing to

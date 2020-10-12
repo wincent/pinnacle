@@ -44,6 +44,9 @@ pinnacle#sub_newlines() ~
 
 Replaces newlines with spaces.
 
+Note that this function is not implemented in the Lua API, because it is
+required only for support on legacy Vim versions.
+
                                                        *pinnacle#capture_line()*
 pinnacle#capture_line() ~
 
@@ -51,6 +54,9 @@ Runs a command and returns the captured output as a single line.
 
 Useful when we don't want to let long lines on narrow windows produce
 unwanted embedded newlines.
+
+Note that this function is not implemented in the Lua API, because it is
+required only for support on legacy Vim versions.
 
                                                   *pinnacle#capture_highlight()*
 pinnacle#capture_highlight() ~

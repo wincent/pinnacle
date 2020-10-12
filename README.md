@@ -35,6 +35,8 @@ To generate help tags under Pathogen, you can do so from inside Vim with:
 
 Replaces newlines with spaces.
 
+Note that this function is not implemented in the Lua API, because it is required only for support on legacy Vim versions.
+
 <p align="right"><a name="pinnaclecaptureline" href="#user-content-pinnaclecaptureline"><code>pinnacle#capture_line()</code></a></p>
 
 ### `pinnacle#capture_line()`<a name="pinnacle-pinnaclecaptureline" href="#user-content-pinnacle-pinnaclecaptureline"></a>
@@ -42,6 +44,8 @@ Replaces newlines with spaces.
 Runs a command and returns the captured output as a single line.
 
 Useful when we don't want to let long lines on narrow windows produce unwanted embedded newlines.
+
+Note that this function is not implemented in the Lua API, because it is required only for support on legacy Vim versions.
 
 <p align="right"><a name="pinnaclecapturehighlight" href="#user-content-pinnaclecapturehighlight"><code>pinnacle#capture_highlight()</code></a></p>
 
