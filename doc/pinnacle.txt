@@ -44,8 +44,8 @@ pinnacle#sub_newlines() ~
 
 Replaces newlines with spaces.
 
-                                                      *pinnacle#capturel_line()*
-pinnacle#capturel_line() ~
+                                                       *pinnacle#capture_line()*
+pinnacle#capture_line() ~
 
 Runs a command and returns the captured output as a single line.
 

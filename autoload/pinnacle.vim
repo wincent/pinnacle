@@ -173,7 +173,7 @@ function s:execute(command)
 endfunction
 
 ""
-" @function pinnacle#capturel_line
+" @function pinnacle#capture_line
 "
 " Runs a command and returns the captured output as a single line.
 "

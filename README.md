@@ -35,9 +35,9 @@ To generate help tags under Pathogen, you can do so from inside Vim with:
 
 Replaces newlines with spaces.
 
-<p align="right"><a name="pinnaclecapturelline" href="#user-content-pinnaclecapturelline"><code>pinnacle#capturel_line()</code></a></p>
+<p align="right"><a name="pinnaclecaptureline" href="#user-content-pinnaclecaptureline"><code>pinnacle#capture_line()</code></a></p>
 
-### `pinnacle#capturel_line()`<a name="pinnacle-pinnaclecapturelline" href="#user-content-pinnacle-pinnaclecapturelline"></a>
+### `pinnacle#capture_line()`<a name="pinnacle-pinnaclecaptureline" href="#user-content-pinnacle-pinnaclecaptureline"></a>
 
 Runs a command and returns the captured output as a single line.
 
