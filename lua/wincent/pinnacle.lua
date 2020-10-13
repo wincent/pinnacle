@@ -97,7 +97,7 @@ end
 
 -- Extracts a highlight string from a group, recursively traversing
 -- linked groups, and returns a string suitable for passing to
--- `:highlight` (effectivenly extracts the bit after "xxx").
+-- `:highlight` (effectively extracts the bit after "xxx").
 pinnacle.extract_highlight = function(group)
   -- We originally relied on:
   --
