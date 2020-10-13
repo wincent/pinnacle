@@ -10,7 +10,7 @@ end
 
 -- Gets the current value of a highlight group.
 pinnacle.capture_highlight = function(group)
-  return vim.api.nvim_exec('0verbose silent highlight ' .. group, true)
+  return vim.api.nvim_exec('0verbose highlight ' .. group, true)
 end
 
 -- Returns a copy of `group` decorated with `style` (eg. "bold",
