@@ -10,7 +10,7 @@ end
 
 -- Gets the current value of a highlight group.
 pinnacle.capture_highlight = function(group)
-  return vim.api.nvim_exec('0verbose highlight ' .. group, true)
+  return group .. ' xxx ' .. pinnacle.extract_highlight(group)
 end
 
 -- Returns a copy of `group` decorated with `style` (eg. "bold",
@@ -97,21 +97,15 @@ end
 
 -- Extracts a highlight string from a group, recursively traversing
 -- linked groups, and returns a string suitable for passing to
--- `:highlight`.
+-- `:highlight` (effectivenly extracts the bit after "xxx").
 pinnacle.extract_highlight = function(group)
-  group = pinnacle.capture_highlight(group)
-
-  -- Traverse links back to authoritative group.
-  local links = ' links to '
-
-  while group:match(links) ~= nil do
-    local start, finish = string.find(group, links)
-    local linked = string.sub(group, finish + 1)
-    group = pinnacle.capture_highlight(linked)
-  end
-
-  -- Extract the highlighting details (the bit after "xxx").
-  return group:match('%sxxx%s+(.*)')
+  -- We originally relied on:
+  --
+  --    vim.api.nvim_exec('0verbose highlight ' .. group, true)
+  --
+  -- But for some reason it sometimes returns an empty string, so we do this
+  -- instead:
+  return pinnacle.highlight(pinnacle.dump(group))
 end
 
 -- Returns a string representation of a table containing bg, fg, term,
