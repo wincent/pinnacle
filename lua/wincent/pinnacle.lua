@@ -2,9 +2,9 @@ local pinnacle = {}
 
 local prefix = 'cterm'
 
-if vim.fn.has('gui') then
+if vim.fn.has('gui') == 1 then
   prefix = 'gui'
-elseif vim.fn.has('termguicolors') and vim.api.nvim_get_option('termguicolors') then
+elseif vim.fn.has('termguicolors') == 1 and vim.api.nvim_get_option('termguicolors') then
   prefix = 'gui'
 end
 
