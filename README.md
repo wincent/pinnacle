@@ -187,6 +187,7 @@ Pinnacle is written and maintained by Greg Hurrell &lt;greg@hurrell.net&gt;.
 Other contributors that have submitted patches include (in alphabetical order):
 
 - Cody Buell
+- Khue Nguyen
 - Kyle Poole
 
 ## History<a name="pinnacle-history" href="#user-content-pinnacle-history"></a>

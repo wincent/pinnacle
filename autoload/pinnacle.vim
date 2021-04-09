@@ -126,6 +126,7 @@
 " order):
 "
 " - Cody Buell
+" - Khue Nguyen
 " - Kyle Poole
 "
 "
