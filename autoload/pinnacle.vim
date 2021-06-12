@@ -105,8 +105,8 @@
 " - Publish the code:
 "
 " ```
-" git push origin master --follow-tags
-" git push github master --follow-tags
+" git push origin main --follow-tags
+" git push github main --follow-tags
 " ```
 "
 " - Produce the release archive:
@@ -132,7 +132,7 @@
 "
 " # History
 "
-" ## master (not yet released)
+" ## main (not yet released)
 "
 " - Teach `pinnacle#decorate()` to accept a comma-separated list of styles.
 " - Add alternative Lua-based API (eg. `require'wincent.pinnacle'.italicize()`

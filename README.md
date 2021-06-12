@@ -168,8 +168,8 @@ git tag -s -m "$VERSION release" $VERSION
 - Publish the code:
 
 ```
-git push origin master --follow-tags
-git push github master --follow-tags
+git push origin main --follow-tags
+git push github main --follow-tags
 ```
 
 - Produce the release archive:
@@ -192,7 +192,7 @@ Other contributors that have submitted patches include (in alphabetical order):
 
 ## History<a name="pinnacle-history" href="#user-content-pinnacle-history"></a>
 
-### master (not yet released)<a name="pinnacle-master-not-yet-released" href="#user-content-pinnacle-master-not-yet-released"></a>
+### main (not yet released)<a name="pinnacle-main-not-yet-released" href="#user-content-pinnacle-main-not-yet-released"></a>
 
 - Teach `pinnacle#decorate()` to accept a comma-separated list of styles.
 - Add alternative Lua-based API (eg. `require'wincent.pinnacle'.italicize()` is equivalent to `pinnacle#italicize()` etc).
