@@ -1,141 +1,56 @@
 local pinnacle = {}
 
-local prefix = 'cterm'
-
-if vim.fn.has('gui') == 1 then
-  prefix = 'gui'
-elseif vim.fn.has('termguicolors') == 1 and vim.api.nvim_get_option('termguicolors') then
-  prefix = 'gui'
-end
-
--- Gets the current value of a highlight group.
-pinnacle.capture_highlight = function(group)
-  return group .. ' xxx ' .. pinnacle.extract_highlight(group)
-end
-
--- Returns a copy of `group` decorated with `style` (eg. "bold",
--- "italic" etc) suitable for passing to `:highlight`.
+-- Returns a table representation of `group`, decorated with `style` (eg.
+-- "bold", "italic" etc) suitable for passing to `pinnacle.set()`.
 --
--- To decorate with multiple styles, `style` should be a comma-separated
--- list.
+-- To decorate with multiple styles, `style` may be a list-like table or a
+-- comma-separated string.
 pinnacle.decorate = function(style, group)
-  local original = pinnacle.extract_highlight(group)
+  local hl = pinnacle.dump(group)
 
-  for _, lhs in ipairs({'gui', 'term', 'cterm'}) do
-    local before, setting, after = original:match(''
-      .. '^(.*)'
-      .. '%f[%a](' .. lhs .. '=%S+)'
-      .. '(.*)$'
-    )
+  if type(style) == 'string' then
+    style = vim.split(style, ',')
+  end
 
-    if setting == nil then
-      -- No setting: add one with just style in it.
-      original = original .. ' ' .. lhs .. '=' .. style
-    else
-      for s in vim.gsplit(style, ',') do
-        local trimmed = vim.trim(s)
-        if not setting:match('%f[%a]' .. trimmed .. '%f[%A]') then
-          setting = setting .. ',' .. trimmed
-        end
+  local add = function(item, to)
+    if to == nil then
+      to = {}
+    end
+    to[item] = true
+    return to
+  end
+
+  for _, requested_style in ipairs(style) do
+    for _, potential_style in ipairs({ 'italic', 'underline', 'bold' }) do
+      if requested_style == potential_style then
+        hl[requested_style] = true
+        hl.cterm = add(requested_style, hl.cterm)
       end
-      original = before .. setting .. after
     end
-
-    return original
   end
+
+  return hl
 end
 
--- Returns a dictionary representation of the specified highlight group.
+-- Returns a table representation of the specified highlight group.
 pinnacle.dump = function(group)
-  local result = {}
-
-  for _, component in ipairs({'bg', 'fg'}) do
-    local value = pinnacle.extract_component(group, component)
-    if value ~= '' then
-      result[component] = value
-    end
-  end
-
-  local active = {}
-
-  for _, component in ipairs({'bold', 'inverse', 'italic', 'reverse', 'standout', 'undercurl', 'underline'}) do
-    if pinnacle.extract_component(group, component) == '1' then
-      table.insert(active, component)
-    end
-  end
-
-  if #active > 0 then
-    result[prefix] = table.concat(active, ',')
-  end
-
-  return result
+  return vim.api.nvim_get_hl(0, { name = group, link = false })
 end
 
--- Returns an bold copy of `group` suitable for passing to `:highlight`.
+-- Returns a (table representation of) bold copy of `group` suitable for passing
+-- to `pinnacle.set()`.
 pinnacle.embolden = function(group)
   return pinnacle.decorate('bold', group)
 end
 
--- Extracts just the "bg" portion of the specified highlight group.
-pinnacle.extract_bg = function(group)
-  return pinnacle.extract_component(group, 'bg')
-end
-
--- Extracts a single component (eg. "bg", "fg", "italic" etc) from the
--- specified highlight group.
-pinnacle.extract_component = function(group, component)
-  return vim.fn.synIDattr(
-    vim.fn.synIDtrans(vim.fn.hlID(group)),
-    component
-  )
-end
-
--- Extracts just the "fg" portion of the specified highlight group.
-pinnacle.extract_fg = function(group)
-  return pinnacle.extract_component(group, 'fg')
-end
-
--- Extracts a highlight string from a group, recursively traversing
--- linked groups, and returns a string suitable for passing to
--- `:highlight` (effectively extracts the bit after "xxx").
-pinnacle.extract_highlight = function(group)
-  -- We originally relied on:
-  --
-  --    vim.api.nvim_exec('0verbose highlight ' .. group, true)
-  --
-  -- But for some reason it sometimes returns an empty string, so we do this
-  -- instead:
-  return pinnacle.highlight(pinnacle.dump(group))
-end
-
--- Returns a string representation of a table containing bg, fg, term,
--- cterm and guiterm entries.
-pinnacle.highlight = function(highlight)
-  local result = {}
-
-  for _, key in ipairs({'bg', 'fg'}) do
-    if highlight[key] ~= nil then
-      table.insert(result, prefix .. key .. '=' .. highlight[key])
-    end
-  end
-
-  for _, key in ipairs({'term', 'cterm', 'guiterm'}) do
-    if highlight[key] ~= nil then
-      table.insert(result, prefix .. '=' .. highlight[key])
-    end
-  end
-
-  return table.concat(result, ' ')
-end
-
 -- Returns an italicized copy of `group` suitable for passing to
--- `:highlight`.
+-- `pinnacle.set()`.
 pinnacle.italicize = function(group)
   return pinnacle.decorate('italic', group)
 end
 
 -- Returns an underlined copy of `group` suitable for passing to
--- `:highlight`.
+-- `pinnacle.set()`.
 pinnacle.underline = function(group)
   return pinnacle.decorate('underline', group)
 end
@@ -237,7 +152,7 @@ local to_hex = function(value)
   return string.format('%.2x', value)
 end
 
--- Returns a dictionary representation of the specified `group`, with all color
+-- Returns a table representation of the specified `group`, with all color
 -- values darkened by `percentage` (a number between 0 and 1).
 --
 -- Percentages are absolute and not relative to the lightness of the colors in
@@ -248,7 +163,7 @@ pinnacle.darken = function(group, percentage)
   return pinnacle.adjust_lightness(group, percentage * -1)
 end
 
--- Returns a dictionary representation of the specified `group`, with all color
+-- Returns a table representation of the specified `group`, with all color
 -- values brightened by `percentage` (a number between 0 and 1).
 --
 -- Percentages are absolute and not relative to the lightness of the colors in
@@ -259,7 +174,7 @@ pinnacle.brighten = function(group, percentage)
   return pinnacle.adjust_lightness(group, percentage * 1)
 end
 
--- Returns a dictionary representation of the specified `group`, with all color
+-- Returns a table representation of the specified `group`, with all color
 -- values darkened or brightened by `percentage` (a number between -1 and 1).
 -- Negative percentages make the colors darker, positive numbers make the colors
 -- brighter, and a value of zero results in no change.
@@ -270,10 +185,9 @@ end
 -- here will increase or decrease the lightness of each color by 10.
 pinnacle.adjust_lightness = function(group, percentage)
   local dict = pinnacle.dump(group)
-  for key, value in pairs(dict) do
-    -- 'Grey70' → 11776947, '#839496' → 8623254, 'reverse' → -1
-    local rgb = vim.api.nvim_get_color_by_name(value)
-    if rgb ~= -1 then
+  for _, key in ipairs({ 'fg', 'bg' }) do
+    local rgb = dict[key]
+    if rgb ~= nil then
       local r = bit.rshift(rgb, 16)
       local g = bit.band(bit.rshift(rgb, 8), 0xff)
       local b = bit.band(rgb, 0xff)
@@ -285,6 +199,40 @@ pinnacle.adjust_lightness = function(group, percentage)
     end
   end
   return dict
+end
+
+-- Convenience shorthand. Extracts the bg component from a highlight group.
+pinnacle.bg = function(group)
+  return pinnacle.dump(group).bg
+end
+
+-- Convenience shorthand. Completely clears a highlight group.
+pinnacle.clear = function(group)
+  return pinnacle.set(group, {})
+end
+
+-- Convenience shorthand. Extracts the fg component from a highlight group.
+pinnacle.fg = function(group)
+  return pinnacle.dump(group).fg
+end
+
+-- Convenience shorthand. Links a highlight group to another.
+pinnacle.link = function(group, target)
+  return pinnacle.set(group, { link = target })
+end
+
+-- Convenience shorthand. Augments a highlight group definition.
+pinnacle.merge = function(group, definition)
+  local hl = pinnacle.dump(group)
+  for key, value in pairs(definition) do
+    hl[key] = value
+  end
+  return pinnacle.set(group, hl)
+end
+
+-- Convenience shorthand. Replaces a highlight group definition.
+pinnacle.set = function(group, definition)
+  return vim.api.nvim_set_hl(0, group, definition)
 end
 
 return pinnacle
