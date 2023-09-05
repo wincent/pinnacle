@@ -204,9 +204,20 @@ HISTORY                                                       *pinnacle-history*
 
 main (not yet released) ~
 
-- Teach `pinnacle#decorate()` to accept a comma-separated list of styles.
-- Add alternative Lua-based API (eg. `require'wincent.pinnacle'.italicize()`
-  is equivalent to `pinnacle#italicize()` etc).
+- Taught `pinnacle#decorate()` to accept a comma-separated list of styles.
+- Added alternative Lua-based API (eg. `require'wincent.pinnacle'.italicize()`
+  is equivalent to `pinnacle#italicize()` etc); but note:
+- Removed functions that aren't needed in the Lua API:
+  `pinnacle.extract_bg()`, `pinnacle.capture_highlight()`,
+  `pinnacle.extract_component()`, `pinnacle.extract_fg()`,
+  `pinnacle.extract_highlight()`, and `pinnacle.highlight()`. Equivalent
+  functionality can be obtained by using the convenience functions listed
+  below, along with `pinnacle.decorate()` and `pinnacle.dump()`.
+- Added convenience functions for common operations to the Lua API:
+  `pinnacle.bg()`, `pinnacle.clear()`, `pinnacle.fg()`, `pinnacle.link()`,
+  `pinnacle.merge()`, and `pinnacle.set()`.
+- Added utility functions to the Lua API: `pinnacle.adjust_lightness()`,
+  `pinnacle.brighten()` and `pinnacle.darken()`.
 
 1.0 (6 March 2019) ~
 
