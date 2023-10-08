@@ -38,11 +38,7 @@
 "
 " # Website
 "
-" The official Pinnacle source code repo is at:
-"
-"   http://git.wincent.com/pinnacle.git
-"
-" Mirrors exist at:
+" Source code:
 "
 "   - https://github.com/wincent/pinnacle
 "   - https://gitlab.com/wincent/pinnacle
