@@ -21,7 +21,7 @@ pinnacle.decorate = function(style, group)
   end
 
   for _, requested_style in ipairs(style) do
-    for _, potential_style in ipairs({ 'italic', 'underline', 'bold' }) do
+    for _, potential_style in ipairs({ 'strikethrough', 'italic', 'underline', 'bold' }) do
       if requested_style == potential_style then
         hl[requested_style] = true
         hl.cterm = add(requested_style, hl.cterm)
